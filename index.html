@@ -7,94 +7,43 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  min-height: 100vh;
-  background: #FFF9F0;
-  font-family: 'Nunito', sans-serif;
-  color: #2D2A26;
-}
-
-/* ── SCREENS ── */
+body { min-height: 100vh; background: #FFF9F0; font-family: 'Nunito', sans-serif; color: #2D2A26; }
 .screen { display: none; }
 .screen.active { display: flex; min-height: 100vh; align-items: center; justify-content: center; padding: 24px 16px; }
 .screen.top { align-items: flex-start; }
 .card { width: 100%; max-width: 580px; animation: fadeUp 0.4s ease both; }
 .card-wide { width: 100%; max-width: 680px; animation: fadeUp 0.4s ease both; }
-
 @keyframes fadeUp { from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);} }
 @keyframes spin { to{transform:rotate(360deg);} }
 @keyframes checkPop { 0%{transform:scale(0);}70%{transform:scale(1.2);}100%{transform:scale(1);} }
 @keyframes float { 0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);} }
 @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(255,159,28,0.3);}50%{box-shadow:0 0 0 12px rgba(255,159,28,0);} }
-
 h1,h2,h3,h4 { font-family: 'Fraunces', serif; }
-
-/* ── COLORS ── */
 :root {
-  --sun: #FF9F1C;
-  --sky: #4ECDC4;
-  --leaf: #88D498;
-  --berry: #C77DFF;
-  --coral: #FF6B6B;
-  --navy: #2D2A26;
-  --cream: #FFF9F0;
-  --paper: #FFFFFF;
-  --border: #E8E0D5;
-  --muted: #9B9490;
+  --sun: #FF9F1C; --sky: #4ECDC4; --leaf: #88D498; --berry: #C77DFF;
+  --coral: #FF6B6B; --navy: #2D2A26; --cream: #FFF9F0; --paper: #FFFFFF;
+  --border: #E8E0D5; --muted: #9B9490;
 }
-
-/* ── INPUTS ── */
 input, textarea, select {
-  background: white; border: 2px solid var(--border);
-  border-radius: 14px; color: var(--navy); padding: 13px 16px; font-size: 15px;
+  background: white; border: 2px solid var(--border); border-radius: 14px;
+  color: var(--navy); padding: 13px 16px; font-size: 15px;
   font-family: 'Nunito', sans-serif; width: 100%; outline: none; transition: border-color 0.2s;
 }
-input:focus, textarea:focus, select:focus { border-color: var(--sun); }
+input:focus, textarea:focus { border-color: var(--sun); }
 input::placeholder, textarea::placeholder { color: #C5BDB5; }
 textarea { min-height: 90px; resize: vertical; }
-
-/* ── TAGS ── */
 .tags { display:flex; flex-wrap:wrap; gap:8px; }
-.tag {
-  padding:8px 16px; border-radius:100px; border:2px solid var(--border);
-  background:white; color:var(--muted); cursor:pointer; font-size:13px;
-  font-family:'Nunito',sans-serif; transition:all 0.2s; font-weight:600;
-}
+.tag { padding:8px 16px; border-radius:100px; border:2px solid var(--border); background:white; color:var(--muted); cursor:pointer; font-size:13px; font-family:'Nunito',sans-serif; transition:all 0.2s; font-weight:600; }
 .tag.selected { border-color:var(--sun); background:#FFF3E0; color:var(--sun); }
 .tag:hover:not(.selected) { border-color:#C5BDB5; color:var(--navy); }
-
-/* ── BUTTONS ── */
-.btn-primary {
-  padding:14px 28px; border-radius:100px; border:none; cursor:pointer; font-size:16px;
-  font-weight:800; font-family:'Nunito',sans-serif; transition:all 0.2s;
-  background:var(--sun); color:white; width:100%;
-  box-shadow: 0 4px 16px rgba(255,159,28,0.3);
-}
+.btn-primary { padding:14px 28px; border-radius:100px; border:none; cursor:pointer; font-size:16px; font-weight:800; font-family:'Nunito',sans-serif; transition:all 0.2s; background:var(--sun); color:white; width:100%; box-shadow:0 4px 16px rgba(255,159,28,0.3); }
 .btn-primary:disabled { opacity:0.4; cursor:not-allowed; box-shadow:none; }
 .btn-primary:hover:not(:disabled) { transform:translateY(-2px); box-shadow:0 8px 24px rgba(255,159,28,0.4); }
-.btn-secondary {
-  padding:14px 24px; border-radius:100px; border:2px solid var(--border); cursor:pointer;
-  font-size:15px; font-weight:700; font-family:'Nunito',sans-serif; transition:all 0.2s;
-  background:white; color:var(--navy);
-}
-.btn-secondary:hover { border-color:#C5BDB5; }
+.btn-secondary { padding:14px 24px; border-radius:100px; border:2px solid var(--border); cursor:pointer; font-size:15px; font-weight:700; font-family:'Nunito',sans-serif; transition:all 0.2s; background:white; color:var(--navy); }
 .btn-row { display:flex; gap:12px; margin-top:24px; }
-
-/* ── STYLE OPTIONS ── */
-.style-option {
-  padding:15px 18px; border-radius:16px; border:2px solid var(--border);
-  background:white; color:var(--muted); cursor:pointer; text-align:left; font-size:15px;
-  font-family:'Nunito',sans-serif; font-weight:600; transition:all 0.2s; width:100%;
-}
+.style-option { padding:15px 18px; border-radius:16px; border:2px solid var(--border); background:white; color:var(--muted); cursor:pointer; text-align:left; font-size:15px; font-family:'Nunito',sans-serif; font-weight:600; transition:all 0.2s; width:100%; }
 .style-option.selected { border-color:var(--sun); background:#FFF3E0; color:var(--sun); }
-.style-option:hover:not(.selected) { border-color:#C5BDB5; color:var(--navy); }
-
-/* ── CURRICULUM ── */
-.curriculum-card {
-  padding:18px 20px; border-radius:18px; border:2px solid var(--border);
-  background:white; cursor:pointer; text-align:left; font-family:'Nunito',sans-serif;
-  transition:all 0.2s; width:100%; margin-bottom:10px;
-}
+.curriculum-card { padding:18px 20px; border-radius:18px; border:2px solid var(--border); background:white; cursor:pointer; text-align:left; font-family:'Nunito',sans-serif; transition:all 0.2s; width:100%; margin-bottom:10px; }
 .curriculum-card:hover { border-color:#C5BDB5; transform:translateY(-1px); }
 .curriculum-card.selected { border-color:var(--sun); background:#FFF9F0; }
 .curriculum-card-header { display:flex; align-items:center; gap:10px; margin-bottom:6px; }
@@ -105,30 +54,19 @@ textarea { min-height: 90px; resize: vertical; }
 .curriculum-traits { display:flex; gap:6px; flex-wrap:wrap; }
 .trait { padding:3px 10px; border-radius:100px; font-size:11px; font-weight:600; background:#F5F0EA; color:var(--muted); }
 .curriculum-card.selected .trait { background:#FFF3E0; color:var(--sun); }
-
-/* ── PROGRESS BAR ── */
 .progress { display:flex; gap:8px; margin-bottom:32px; }
 .progress-item { flex:1; display:flex; flex-direction:column; align-items:center; gap:4px; }
 .progress-bar { height:5px; width:100%; border-radius:100px; background:var(--border); transition:background 0.4s; }
 .progress-bar.done { background:var(--leaf); }
 .progress-bar.active { background:var(--sun); }
-.progress-label { font-size:10px; color:var(--muted); font-weight:700; transition:color 0.4s; }
+.progress-label { font-size:10px; color:var(--muted); font-weight:700; }
 .progress-label.done { color:var(--leaf); }
 .progress-label.active { color:var(--sun); }
-
 .field { display:flex; flex-direction:column; gap:8px; }
 .fields { display:flex; flex-direction:column; gap:20px; }
 label.fieldlabel { font-size:12px; color:var(--muted); letter-spacing:0.05em; text-transform:uppercase; font-weight:700; }
-
-/* ── SPINNER ── */
 .spinner { width:56px; height:56px; border-radius:50%; border:4px solid #FFE4B5; border-top-color:var(--sun); animation:spin 1s linear infinite; margin:0 auto 28px; }
-
-/* ── WELCOME ── */
-.welcome-blob {
-  background:white; border-radius:24px; padding:20px;
-  border:2px solid var(--border); margin-bottom:12px;
-  box-shadow:0 2px 12px rgba(0,0,0,0.05);
-}
+.welcome-blob { background:white; border-radius:24px; padding:20px; border:2px solid var(--border); margin-bottom:12px; box-shadow:0 2px 12px rgba(0,0,0,0.05); }
 .sample-subject { padding:3px 10px; border-radius:100px; font-size:11px; font-weight:700; }
 .sample-title { font-family:'Fraunces',serif; font-size:15px; color:var(--navy); margin:6px 0 4px; }
 .sample-desc { font-size:12px; color:var(--muted); line-height:1.6; }
@@ -139,8 +77,6 @@ label.fieldlabel { font-size:12px; color:var(--muted); letter-spacing:0.05em; te
 .stars { color:var(--sun); font-size:13px; margin-bottom:6px; }
 .section-label { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:14px; font-weight:700; }
 .divider { height:2px; background:var(--border); margin:28px 0; border-radius:1px; }
-
-/* ── DASHBOARD ── */
 .dashboard-header { background:white; border-radius:20px; padding:20px; border:2px solid var(--border); margin-bottom:20px; box-shadow:0 2px 12px rgba(0,0,0,0.05); }
 .curriculum-badge { display:inline-flex; align-items:center; gap:6px; padding:5px 14px; border-radius:100px; font-size:12px; font-weight:700; margin-bottom:8px; }
 .day-tabs { display:flex; gap:8px; margin-bottom:20px; overflow-x:auto; padding-bottom:4px; }
@@ -172,59 +108,56 @@ label.fieldlabel { font-size:12px; color:var(--muted); letter-spacing:0.05em; te
 .week-progress-bar { height:8px; background:#F0EAE0; border-radius:100px; overflow:hidden; margin-top:8px; }
 .week-progress-fill { height:100%; background:linear-gradient(90deg,var(--leaf),var(--sky)); border-radius:100px; transition:width 0.5s ease; }
 .week-progress-label { display:flex; justify-content:space-between; font-size:13px; color:var(--muted); font-weight:600; }
-
-/* ── LANDMARKS ── */
 .landmarks-section { background:white; border:2px solid var(--border); border-radius:20px; padding:20px; margin-bottom:20px; box-shadow:0 2px 8px rgba(0,0,0,0.04); }
 .landmarks-search { display:flex; gap:10px; margin-bottom:14px; }
 .landmarks-search input { flex:1; }
-.landmarks-search button { padding:13px 20px; border-radius:14px; border:none; background:var(--sky); color:white; font-weight:700; font-family:'Nunito',sans-serif; font-size:14px; cursor:pointer; white-space:nowrap; transition:all 0.2s; }
-.landmarks-search button:hover { background:#3BB8B0; }
+.landmarks-search button { padding:13px 20px; border-radius:14px; border:none; background:var(--sky); color:white; font-weight:700; font-family:'Nunito',sans-serif; font-size:14px; cursor:pointer; white-space:nowrap; }
 .landmark-chip { display:inline-flex; align-items:center; gap:6px; padding:7px 14px; border-radius:100px; border:2px solid var(--border); background:white; font-size:13px; font-weight:600; cursor:pointer; transition:all 0.2s; margin:4px; color:var(--navy); }
-.landmark-chip:hover { border-color:var(--sky); color:var(--sky); background:#F0FAFA; }
+.landmark-chip:hover { border-color:var(--sky); color:var(--sky); }
 .landmark-chip.active { border-color:var(--sky); background:#E0F7F5; color:#2BA5A0; }
-
-/* ── DIARY ── */
 .diary-section { background:linear-gradient(135deg,#FFFDE7,#FFF9F0); border:2px solid #FFE082; border-radius:20px; padding:24px; margin-bottom:20px; }
 .diary-title { font-family:'Fraunces',serif; font-size:20px; color:var(--navy); margin-bottom:6px; }
 .diary-subtitle { font-size:14px; color:var(--muted); margin-bottom:18px; line-height:1.6; }
 .diary-keywords { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; min-height:40px; }
-.keyword-tag { display:inline-flex; align-items:center; gap:6px; padding:6px 14px; border-radius:100px; background:white; border:2px solid #FFE082; color:var(--sun); font-size:13px; font-weight:700; cursor:pointer; transition:all 0.2s; }
-.keyword-tag:hover { background:#FFE082; }
-.keyword-remove { font-size:14px; line-height:1; }
+.keyword-tag { display:inline-flex; align-items:center; gap:6px; padding:6px 14px; border-radius:100px; background:white; border:2px solid #FFE082; color:var(--sun); font-size:13px; font-weight:700; cursor:pointer; }
 .diary-input-row { display:flex; gap:10px; margin-bottom:16px; }
 .diary-input-row input { flex:1; }
 .diary-input-row button { padding:13px 18px; border-radius:14px; border:none; background:var(--sun); color:white; font-weight:700; font-family:'Nunito',sans-serif; cursor:pointer; white-space:nowrap; }
 .diary-story { background:white; border-radius:16px; padding:20px; border:2px solid #FFE082; margin-top:16px; animation:fadeUp 0.4s ease both; }
-.diary-story-text { font-size:15px; line-height:1.9; color:var(--navy); white-space:pre-wrap; font-family:'Nunito',sans-serif; }
+.diary-story-text { font-size:15px; line-height:1.9; color:var(--navy); white-space:pre-wrap; }
 .diary-download { margin-top:14px; display:flex; gap:10px; flex-wrap:wrap; }
 .download-btn { padding:10px 20px; border-radius:100px; border:2px solid var(--sun); background:white; color:var(--sun); font-weight:700; font-size:13px; font-family:'Nunito',sans-serif; cursor:pointer; transition:all 0.2s; }
 .download-btn:hover { background:var(--sun); color:white; }
-.diary-generating { text-align:center; padding:24px; color:var(--muted); font-size:14px; }
 .diary-spinner { width:32px; height:32px; border-radius:50%; border:3px solid #FFE4B5; border-top-color:var(--sun); animation:spin 1s linear infinite; margin:0 auto 12px; }
 
 /* ── PRICING ── */
-.pricing-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-bottom:32px; }
-@media(max-width:640px){ .pricing-grid{grid-template-columns:1fr;} }
-.plan { border-radius:24px; padding:26px 22px; border:2px solid var(--border); background:white; display:flex; flex-direction:column; transition:all 0.2s; position:relative; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.04); }
+.pricing-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:32px; max-width:560px; margin-left:auto; margin-right:auto; }
+@media(max-width:540px){ .pricing-grid{grid-template-columns:1fr;} }
+.plan { border-radius:24px; padding:28px 24px; border:2px solid var(--border); background:white; display:flex; flex-direction:column; transition:all 0.2s; position:relative; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.04); }
 .plan:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,0.08); }
 .plan.featured { border-color:var(--sun); background:#FFFDF5; animation:pulse 3s ease infinite; }
 .plan.featured::before { content:"Most popular"; position:absolute; top:0; right:0; background:var(--sun); color:white; font-size:10px; font-weight:800; letter-spacing:0.06em; padding:6px 14px; border-radius:0 24px 0 14px; text-transform:uppercase; }
 .plan-name { font-size:12px; font-weight:800; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:10px; }
 .plan.featured .plan-name { color:var(--sun); }
-.price-amount { font-family:'Fraunces',serif; font-size:44px; font-weight:700; line-height:1; color:var(--navy); }
+.price-amount { font-family:'Fraunces',serif; font-size:48px; font-weight:700; line-height:1; color:var(--navy); }
 .price-period { font-size:13px; color:var(--muted); margin-bottom:4px; font-weight:600; }
 .price-annual { font-size:11px; color:var(--muted); margin-bottom:16px; min-height:16px; }
 .plan-desc { font-size:13px; color:var(--muted); line-height:1.6; margin-bottom:18px; }
-.plan-btn { padding:13px; border-radius:100px; border:none; cursor:pointer; font-size:14px; font-weight:800; font-family:'Nunito',sans-serif; transition:all 0.2s; width:100%; margin-bottom:20px; }
+.plan-btn { padding:14px; border-radius:100px; border:none; cursor:pointer; font-size:14px; font-weight:800; font-family:'Nunito',sans-serif; transition:all 0.2s; width:100%; margin-bottom:20px; }
 .plan-btn-gold { background:var(--sun); color:white; box-shadow:0 4px 14px rgba(255,159,28,0.3); }
 .plan-btn-gold:hover { transform:translateY(-1px); box-shadow:0 8px 20px rgba(255,159,28,0.4); }
 .plan-btn-soft { background:#F5F0EA; color:var(--navy); }
 .plan-btn-soft:hover { background:#EDE5D8; }
-.plan-btn-outline { background:white; color:var(--navy); border:2px solid var(--border); }
-.plan-btn-outline:hover { border-color:#C5BDB5; }
 .features-title { font-size:10px; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:12px; font-weight:700; }
 .pfeature { display:flex; align-items:flex-start; gap:8px; margin-bottom:9px; font-size:13px; color:#555; line-height:1.5; font-weight:600; }
 .pfeature.off { color:#C5BDB5; }
+
+/* Trial banner */
+.trial-banner { background:linear-gradient(135deg,#FFF9E6,#FFF3CC); border:2px solid #FFE082; border-radius:20px; padding:20px 24px; margin-bottom:28px; display:flex; align-items:center; gap:16px; }
+.trial-badge { background:var(--sun); color:white; font-size:28px; font-weight:800; font-family:'Fraunces',serif; width:56px; height:56px; border-radius:16px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.trial-text h3 { font-size:17px; color:var(--navy); margin-bottom:4px; }
+.trial-text p { font-size:13px; color:var(--muted); line-height:1.6; font-weight:600; }
+
 .toggle-wrap { display:inline-flex; background:#F5F0EA; border-radius:100px; padding:4px; gap:4px; margin-bottom:8px; }
 .toggle-btn { padding:8px 20px; border-radius:100px; border:none; cursor:pointer; font-size:14px; font-weight:700; font-family:'Nunito',sans-serif; transition:all 0.2s; background:transparent; color:var(--muted); }
 .toggle-btn.active { background:var(--sun); color:white; }
@@ -245,8 +178,6 @@ label.fieldlabel { font-size:12px; color:var(--muted); letter-spacing:0.05em; te
 .cta-box { text-align:center; padding:40px 28px; border-radius:24px; background:linear-gradient(135deg,#FFF9E6,#FFF3CC); border:2px solid #FFE082; margin-top:32px; }
 .cta-btn { display:inline-block; padding:16px 40px; border-radius:100px; background:var(--sun); color:white; font-weight:800; font-size:16px; cursor:pointer; font-family:'Nunito',sans-serif; border:none; transition:all 0.2s; box-shadow:0 4px 16px rgba(255,159,28,0.3); }
 .cta-btn:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(255,159,28,0.4); }
-
-/* ── NAV ── */
 .top-nav { display:flex; align-items:center; justify-content:space-between; margin-bottom:28px; }
 .nav-logo { font-family:'Fraunces',serif; font-size:22px; font-weight:700; color:var(--navy); }
 .nav-link { background:none; border:none; color:var(--muted); font-size:13px; cursor:pointer; font-family:'Nunito',sans-serif; font-weight:700; }
@@ -255,17 +186,19 @@ label.fieldlabel { font-size:12px; color:var(--muted); letter-spacing:0.05em; te
 </head>
 <body>
 
-<!-- ══════════════════════════════
-     WELCOME
-══════════════════════════════ -->
+<!-- WELCOME -->
 <div id="screen-welcome" class="screen active">
 <div class="card">
   <div style="text-align:center;margin-bottom:32px">
     <div style="font-size:64px;margin-bottom:12px;animation:float 3s ease infinite">🌍</div>
     <h1 style="font-size:40px;font-weight:700;line-height:1.15;margin-bottom:12px;color:var(--navy)">School, wherever<br>you are. <span style="color:var(--sun)">☀️</span></h1>
-    <p style="color:var(--muted);font-size:16px;line-height:1.7;margin-bottom:20px">AI-powered weekly lesson plans built on proven homeschooling philosophy — tailored to your child and wherever you are in the world.</p>
-    <button class="btn-primary" style="max-width:320px;margin:0 auto 12px;display:block" onclick="go('child')">Get your free week plan →</button>
-    <p style="color:#C5BDB5;font-size:12px;margin-bottom:8px">Takes 3 minutes · No credit card required</p>
+    <p style="color:var(--muted);font-size:16px;line-height:1.7;margin-bottom:8px">AI-powered weekly lesson plans built on proven homeschooling philosophy — tailored to your child and wherever you are in the world.</p>
+    <div style="display:inline-flex;align-items:center;gap:8px;background:#FFF3E0;border:2px solid #FFE082;border-radius:100px;padding:8px 18px;margin-bottom:20px">
+      <span style="font-size:14px">🎁</span>
+      <span style="font-size:13px;font-weight:800;color:var(--sun)">Try free for 10 days — no commitment</span>
+    </div>
+    <button class="btn-primary" style="max-width:320px;margin:0 auto 12px;display:block" onclick="go('child')">Start your free trial →</button>
+    <p style="color:#C5BDB5;font-size:12px;margin-bottom:8px;font-weight:600">10 days free · Then from $12.99/mo · Cancel anytime</p>
     <button onclick="go('pricing')" style="background:none;border:none;color:var(--muted);font-size:13px;cursor:pointer;font-family:inherit;font-weight:700;text-decoration:underline">See pricing →</button>
   </div>
 
@@ -317,14 +250,12 @@ label.fieldlabel { font-size:12px; color:var(--muted); letter-spacing:0.05em; te
     </div>
   </div>
 
-  <button class="btn-primary" onclick="go('child')" style="margin-top:8px">Start building your week plan →</button>
+  <button class="btn-primary" onclick="go('child')" style="margin-top:8px">Start your free trial →</button>
   <p style="color:#C5BDB5;font-size:12px;margin-top:10px;text-align:center;font-weight:600">Joins 2,400+ families worldwide 🌍</p>
 </div>
 </div>
 
-<!-- ══════════════════════════════
-     CHILD
-══════════════════════════════ -->
+<!-- CHILD -->
 <div id="screen-child" class="screen">
 <div class="card">
   <div class="progress" id="progress-child"></div>
@@ -342,14 +273,12 @@ label.fieldlabel { font-size:12px; color:var(--muted); letter-spacing:0.05em; te
 </div>
 </div>
 
-<!-- ══════════════════════════════
-     CURRICULUM
-══════════════════════════════ -->
+<!-- CURRICULUM -->
 <div id="screen-curriculum" class="screen">
 <div class="card">
   <div class="progress" id="progress-curriculum"></div>
   <h2 style="font-size:26px;margin-bottom:6px">Choose your philosophy 📚</h2>
-  <p style="color:var(--muted);margin-bottom:24px;font-size:15px">The foundation every lesson is built on. Charlotte Mason is most popular among nomad families.</p>
+  <p style="color:var(--muted);margin-bottom:24px;font-size:15px">The foundation every lesson is built on.</p>
   <div id="curriculum-cards"></div>
   <div class="btn-row">
     <button class="btn-secondary" onclick="go('child')">←</button>
@@ -358,9 +287,7 @@ label.fieldlabel { font-size:12px; color:var(--muted); letter-spacing:0.05em; te
 </div>
 </div>
 
-<!-- ══════════════════════════════
-     LOCATION
-══════════════════════════════ -->
+<!-- LOCATION -->
 <div id="screen-location" class="screen">
 <div class="card">
   <div class="progress" id="progress-location"></div>
@@ -377,9 +304,7 @@ label.fieldlabel { font-size:12px; color:var(--muted); letter-spacing:0.05em; te
 </div>
 </div>
 
-<!-- ══════════════════════════════
-     STYLE
-══════════════════════════════ -->
+<!-- STYLE -->
 <div id="screen-style" class="screen">
 <div class="card">
   <div class="progress" id="progress-style"></div>
@@ -394,9 +319,7 @@ label.fieldlabel { font-size:12px; color:var(--muted); letter-spacing:0.05em; te
 </div>
 </div>
 
-<!-- ══════════════════════════════
-     GENERATING
-══════════════════════════════ -->
+<!-- GENERATING -->
 <div id="screen-generating" class="screen">
 <div class="card" style="text-align:center">
   <div style="font-size:64px;margin-bottom:20px;animation:float 2s ease infinite">✨</div>
@@ -406,18 +329,24 @@ label.fieldlabel { font-size:12px; color:var(--muted); letter-spacing:0.05em; te
 </div>
 </div>
 
-<!-- ══════════════════════════════
-     DASHBOARD
-══════════════════════════════ -->
+<!-- DASHBOARD -->
 <div id="screen-dashboard" class="screen top">
 <div class="card-wide">
-
   <div class="top-nav">
     <span class="nav-logo">🌍 NomadSchool</span>
     <div style="display:flex;gap:12px">
       <button class="nav-link" onclick="go('diary')">📖 Journal</button>
       <button class="nav-link" style="color:var(--sun)" onclick="go('pricing')">✨ Upgrade</button>
       <button class="nav-link" onclick="go('welcome')">← Back</button>
+    </div>
+  </div>
+
+  <!-- Trial banner -->
+  <div class="trial-banner">
+    <div class="trial-badge">10</div>
+    <div class="trial-text">
+      <h3>You're on your free trial 🎉</h3>
+      <p>Full access to everything for 10 days. Then choose Pro or Family to continue.</p>
     </div>
   </div>
 
@@ -430,7 +359,6 @@ label.fieldlabel { font-size:12px; color:var(--muted); letter-spacing:0.05em; te
     <p style="color:var(--muted);font-size:13px;font-weight:600" id="profile-line"></p>
   </div>
 
-  <!-- Week progress -->
   <div class="week-progress">
     <div class="week-progress-label">
       <span id="progress-text" style="font-weight:700">0 of 15 lessons completed</span>
@@ -439,7 +367,6 @@ label.fieldlabel { font-size:12px; color:var(--muted); letter-spacing:0.05em; te
     <div class="week-progress-bar"><div class="week-progress-fill" id="progress-fill" style="width:0%"></div></div>
   </div>
 
-  <!-- Landmarks -->
   <div class="landmarks-section">
     <div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:4px">🗺️ Local Landmarks</div>
     <div style="font-size:13px;color:var(--muted);margin-bottom:14px;font-weight:600">Search for places near you and add them to today's lessons.</div>
@@ -463,27 +390,21 @@ label.fieldlabel { font-size:12px; color:var(--muted); letter-spacing:0.05em; te
     <h3 style="font-size:22px;margin-bottom:8px;color:var(--navy)">Love this week's plan?</h3>
     <p style="color:var(--muted);font-size:14px;line-height:1.7;margin-bottom:20px;font-weight:600">Get a new AI-generated week plan every week,<br>updated as you travel to new places.</p>
     <button class="cta-btn" onclick="go('pricing')">See plans & pricing →</button>
-    <p style="color:#C5BDB5;font-size:12px;margin-top:12px;font-weight:600">Cancel anytime · 14-day free trial</p>
+    <p style="color:#C5BDB5;font-size:12px;margin-top:12px;font-weight:600">From $12.99/mo · Cancel anytime</p>
   </div>
-
 </div>
 </div>
 
-<!-- ══════════════════════════════
-     DIARY / JOURNAL
-══════════════════════════════ -->
+<!-- DIARY -->
 <div id="screen-diary" class="screen top">
 <div class="card-wide">
-
   <div class="top-nav">
     <span class="nav-logo">📖 Daily Journal</span>
     <button class="nav-link" onclick="go('dashboard')">← Back to plan</button>
   </div>
-
   <div class="diary-section">
     <h2 class="diary-title">What happened today? ✨</h2>
     <p class="diary-subtitle" id="diary-date-label">Write a few keywords about your day — where you went, what you saw, how you felt. Our AI will turn them into a beautiful story you can keep forever.</p>
-
     <label class="fieldlabel" style="margin-bottom:10px;display:block">Add keywords from today</label>
     <div class="diary-input-row">
       <input id="keyword-input" placeholder="e.g. temple, elephant, mango, rain, happy..." onkeydown="if(event.key==='Enter')addKeyword()"/>
@@ -492,29 +413,18 @@ label.fieldlabel { font-size:12px; color:var(--muted); letter-spacing:0.05em; te
     <div class="diary-keywords" id="diary-keywords">
       <span style="color:#C5BDB5;font-size:13px;font-weight:600;align-self:center">Your keywords will appear here...</span>
     </div>
-
-    <button class="btn-primary" id="btn-generate-story" onclick="generateStory()" disabled style="margin-top:16px">
-      ✨ Generate my story
-    </button>
+    <button class="btn-primary" id="btn-generate-story" onclick="generateStory()" disabled style="margin-top:16px">✨ Generate my story</button>
   </div>
-
   <div id="diary-story-container"></div>
-
-  <!-- Past entries -->
   <div style="margin-top:24px">
     <div class="section-label">📚 Previous entries</div>
     <div id="past-entries"></div>
-    <div id="no-entries" style="text-align:center;padding:32px;color:var(--muted);font-weight:600;font-size:14px">
-      No entries yet — write your first story today! 🌟
-    </div>
+    <div id="no-entries" style="text-align:center;padding:32px;color:var(--muted);font-weight:600;font-size:14px">No entries yet — write your first story today! 🌟</div>
   </div>
-
 </div>
 </div>
 
-<!-- ══════════════════════════════
-     PRICING
-══════════════════════════════ -->
+<!-- PRICING -->
 <div id="screen-pricing" class="screen top">
 <div class="card-wide">
   <div class="top-nav">
@@ -524,7 +434,7 @@ label.fieldlabel { font-size:12px; color:var(--muted); letter-spacing:0.05em; te
 
   <div style="text-align:center;margin-bottom:36px">
     <h1 style="font-size:36px;font-weight:700;margin-bottom:12px;color:var(--navy)">Simple, honest pricing. 🌈</h1>
-    <p style="color:var(--muted);font-size:16px;line-height:1.7;max-width:440px;margin:0 auto 20px;font-weight:600">One plan that grows with your family. Cancel anytime.</p>
+    <p style="color:var(--muted);font-size:16px;line-height:1.7;max-width:440px;margin:0 auto 20px;font-weight:600">Try everything free for 10 days. Then choose the plan that fits your family.</p>
     <div>
       <div class="toggle-wrap">
         <button class="toggle-btn active" id="btn-monthly" onclick="setBilling('monthly')">Monthly</button>
@@ -533,311 +443,209 @@ label.fieldlabel { font-size:12px; color:var(--muted); letter-spacing:0.05em; te
     </div>
   </div>
 
-  <div class="pricing-grid">
-    <div class="plan">
-      <div class="plan-name">Free</div>
-      <div style="display:flex;align-items:flex-end;gap:2px;margin-bottom:4px"><span class="price-amount">$0</span></div>
-      <div class="price-period">forever</div>
-      <div class="price-annual">&nbsp;</div>
-      <p class="plan-desc">Try NomadSchool with one child — no credit card needed.</p>
-      <button class="plan-btn plan-btn-outline" onclick="go('child')">Get started free</button>
-      <div class="features-title">What's included</div>
-      <div class="pfeature">✓ &nbsp;1 child profile</div>
-      <div class="pfeature">✓ &nbsp;1 week plan/month</div>
-      <div class="pfeature">✓ &nbsp;All 5 philosophies</div>
-      <div class="pfeature">✓ &nbsp;Landmarks search</div>
-      <div class="pfeature off">✗ &nbsp;Unlimited plans</div>
-      <div class="pfeature off">✗ &nbsp;Daily journal</div>
-      <div class="pfeature off">✗ &nbsp;PDF download</div>
+  <!-- Trial highlight -->
+  <div class="trial-banner" style="max-width:560px;margin:0 auto 28px">
+    <div class="trial-badge">10</div>
+    <div class="trial-text">
+      <h3>10-day free trial on all plans</h3>
+      <p>Full access from day one. Cancel before day 10 and you won't be charged a thing.</p>
     </div>
+  </div>
+
+  <div class="pricing-grid">
+    <!-- Pro -->
     <div class="plan featured">
       <div class="plan-name">Pro</div>
-      <div style="display:flex;align-items:flex-end;gap:2px;margin-bottom:4px"><span class="price-amount" id="pro-price">$9</span><span style="font-size:20px;color:var(--muted);margin-bottom:8px">.99</span></div>
+      <div style="display:flex;align-items:flex-end;gap:2px;margin-bottom:4px">
+        <span class="price-amount" id="pro-price">$12</span>
+        <span style="font-size:20px;color:var(--muted);margin-bottom:9px" id="pro-cents">.99</span>
+      </div>
       <div class="price-period">per month</div>
       <div class="price-annual" id="pro-annual">&nbsp;</div>
-      <p class="plan-desc">Everything you need. New plan every week, wherever you are.</p>
+      <p class="plan-desc">Perfect for families with one child. A new week plan every week, wherever you are in the world.</p>
       <button class="plan-btn plan-btn-gold" onclick="go('child')">Start free trial →</button>
-      <div class="features-title">Everything in Free, plus</div>
+      <div class="features-title">What's included</div>
+      <div class="pfeature">✓ &nbsp;1 child profile</div>
       <div class="pfeature">✓ &nbsp;<strong>Unlimited</strong> week plans</div>
-      <div class="pfeature">✓ &nbsp;Daily journal + stories</div>
-      <div class="pfeature">✓ &nbsp;Download as PDF/TXT</div>
-      <div class="pfeature">✓ &nbsp;Progress history</div>
+      <div class="pfeature">✓ &nbsp;All 5 philosophies</div>
+      <div class="pfeature">✓ &nbsp;Location-based lessons</div>
+      <div class="pfeature">✓ &nbsp;Landmarks search</div>
+      <div class="pfeature">✓ &nbsp;Daily journal + AI stories</div>
+      <div class="pfeature">✓ &nbsp;PDF download</div>
+      <div class="pfeature">✓ &nbsp;Progress tracking</div>
       <div class="pfeature">✓ &nbsp;Email support</div>
       <div class="pfeature off">✗ &nbsp;Multiple children</div>
+      <div class="pfeature off">✗ &nbsp;Family dashboard</div>
     </div>
+    <!-- Family -->
     <div class="plan">
       <div class="plan-name">Family</div>
-      <div style="display:flex;align-items:flex-end;gap:2px;margin-bottom:4px"><span class="price-amount" id="family-price">$14</span><span style="font-size:20px;color:var(--muted);margin-bottom:8px">.99</span></div>
+      <div style="display:flex;align-items:flex-end;gap:2px;margin-bottom:4px">
+        <span class="price-amount" id="family-price">$18</span>
+        <span style="font-size:20px;color:var(--muted);margin-bottom:9px" id="family-cents">.99</span>
+      </div>
       <div class="price-period">per month</div>
       <div class="price-annual" id="family-annual">&nbsp;</div>
-      <p class="plan-desc">For families with multiple kids. One plan, everyone covered.</p>
+      <p class="plan-desc">For families with multiple kids. Individual plans for each child, one simple subscription.</p>
       <button class="plan-btn plan-btn-soft" onclick="go('child')">Start free trial →</button>
       <div class="features-title">Everything in Pro, plus</div>
-      <div class="pfeature">✓ &nbsp;<strong>Up to 4</strong> children</div>
+      <div class="pfeature">✓ &nbsp;<strong>Up to 4</strong> child profiles</div>
+      <div class="pfeature">✓ &nbsp;Individual plans per child</div>
       <div class="pfeature">✓ &nbsp;Individual journals per child</div>
-      <div class="pfeature">✓ &nbsp;Family dashboard</div>
+      <div class="pfeature">✓ &nbsp;Family dashboard overview</div>
       <div class="pfeature">✓ &nbsp;Community access</div>
+      <div class="pfeature">✓ &nbsp;Find families near you</div>
       <div class="pfeature">✓ &nbsp;Priority support</div>
     </div>
   </div>
 
   <div class="guarantee">
     <div style="font-size:32px;margin-bottom:12px">🛡️</div>
-    <h3 style="font-size:20px;margin-bottom:8px;color:var(--navy)">14-day free trial. No risk.</h3>
-    <p style="color:var(--muted);font-size:14px;line-height:1.7;max-width:380px;margin:0 auto;font-weight:600">Try NomadSchool free for 14 days. Cancel with one click — no charges, no questions.</p>
+    <h3 style="font-size:20px;margin-bottom:8px;color:var(--navy)">10-day free trial. Zero risk.</h3>
+    <p style="color:var(--muted);font-size:14px;line-height:1.7;max-width:380px;margin:0 auto;font-weight:600">Try everything — all features, all philosophies, full access. Cancel before day 10 and you pay nothing.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <h2 style="font-size:24px;margin-bottom:8px;color:var(--navy)">Compare plans</h2>
+  <p style="color:var(--muted);font-size:14px;margin-bottom:20px;font-weight:600">Everything side by side.</p>
+  <div style="overflow-x:auto;margin-bottom:36px">
+    <table class="compare-table">
+      <thead><tr><th style="width:45%">Feature</th><th class="hl">Pro</th><th>Family</th></tr></thead>
+      <tbody>
+        <tr><td>Monthly price</td><td class="hl" id="compare-pro">$12.99</td><td id="compare-fam">$18.99</td></tr>
+        <tr><td>Free trial</td><td class="hl">10 days</td><td>10 days</td></tr>
+        <tr><td>Child profiles</td><td class="hl">1</td><td>Up to 4</td></tr>
+        <tr><td>Week plans</td><td class="hl">Unlimited</td><td>Unlimited</td></tr>
+        <tr><td>Curriculum philosophies</td><td class="hl">All 5</td><td>All 5</td></tr>
+        <tr><td>Location-based lessons</td><td class="hl"><span class="chk">✓</span></td><td><span class="chk">✓</span></td></tr>
+        <tr><td>Landmarks search</td><td class="hl"><span class="chk">✓</span></td><td><span class="chk">✓</span></td></tr>
+        <tr><td>Daily journal + AI stories</td><td class="hl"><span class="chk">✓</span></td><td><span class="chk">✓</span></td></tr>
+        <tr><td>PDF download</td><td class="hl"><span class="chk">✓</span></td><td><span class="chk">✓</span></td></tr>
+        <tr><td>Progress tracking</td><td class="hl"><span class="chk">✓</span></td><td><span class="chk">✓</span></td></tr>
+        <tr><td>Family dashboard</td><td class="hl"><span class="crs">✗</span></td><td><span class="chk">✓</span></td></tr>
+        <tr><td>Community access</td><td class="hl"><span class="crs">✗</span></td><td><span class="chk">✓</span></td></tr>
+        <tr><td>Support</td><td class="hl">Email</td><td>Priority</td></tr>
+      </tbody>
+    </table>
   </div>
 
   <div class="divider"></div>
 
   <h2 style="font-size:24px;margin-bottom:20px;color:var(--navy)">Common questions</h2>
   <div class="faq-item" onclick="this.classList.toggle('open')">
-    <div class="faq-q">Can I switch plans at any time? <span class="faq-arrow">↓</span></div>
-    <div class="faq-a">Yes. Upgrade, downgrade, or cancel anytime. If you cancel, you keep access until the end of your billing period.</div>
+    <div class="faq-q">How does the 10-day trial work? <span class="faq-arrow">↓</span></div>
+    <div class="faq-a">You get full access to all features from day one. Your card is charged on day 11. Cancel any time before that and you won't be charged anything.</div>
+  </div>
+  <div class="faq-item" onclick="this.classList.toggle('open')">
+    <div class="faq-q">Can I switch between Pro and Family? <span class="faq-arrow">↓</span></div>
+    <div class="faq-a">Yes, upgrade or downgrade anytime. If you get a second child you can upgrade to Family — all your existing data stays intact.</div>
+  </div>
+  <div class="faq-item" onclick="this.classList.toggle('open')">
+    <div class="faq-q">Does the Pro plan work for a second child? <span class="faq-arrow">↓</span></div>
+    <div class="faq-a">No — Pro is for one child profile. If you have more than one child you'll need the Family plan, which supports up to 4 individual profiles each with their own plans and journals.</div>
   </div>
   <div class="faq-item" onclick="this.classList.toggle('open')">
     <div class="faq-q">How does location-based learning work? <span class="faq-arrow">↓</span></div>
-    <div class="faq-a">You enter your current city and country when generating your week plan. The AI weaves local culture, landmarks and activities into every lesson.</div>
+    <div class="faq-a">You enter your current city when generating your week plan. The AI weaves local culture, landmarks and activities into every lesson — so learning in Bangkok feels completely different from learning in Lisbon.</div>
   </div>
   <div class="faq-item" onclick="this.classList.toggle('open')">
     <div class="faq-q">What is the daily journal? <span class="faq-arrow">↓</span></div>
-    <div class="faq-a">After each day, you or your child writes a few keywords — places visited, things seen, feelings experienced. The AI expands them into a beautiful story that you can download and save as a personal travel diary.</div>
-  </div>
-  <div class="faq-item" onclick="this.classList.toggle('open')">
-    <div class="faq-q">What's included in the free trial? <span class="faq-arrow">↓</span></div>
-    <div class="faq-a">Full Pro access for 14 days. No credit card required. You're only charged if you decide to continue.</div>
+    <div class="faq-a">After each day, you or your child writes a few keywords — places visited, things seen, feelings. The AI expands them into a beautiful story you can download and save as a personal travel diary.</div>
   </div>
 
   <div class="cta-box">
     <div style="font-size:36px;margin-bottom:12px">🌍</div>
     <h2 style="font-size:26px;margin-bottom:10px;color:var(--navy)">Start your family's journey.</h2>
-    <p style="color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:22px;font-weight:600">Join 2,400+ nomadic families who've taken the mental load out of homeschooling.</p>
-    <button class="cta-btn" onclick="go('child')">Get started free →</button>
-    <p style="color:#C5BDB5;font-size:12px;margin-top:14px;font-weight:600">14-day free trial · No credit card · Cancel anytime</p>
+    <p style="color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:22px;font-weight:600">10 days free. Cancel anytime. Join 2,400+ nomadic families.</p>
+    <button class="cta-btn" onclick="go('child')">Start free trial →</button>
+    <p style="color:#C5BDB5;font-size:12px;margin-top:14px;font-weight:600">10 days free · From $12.99/mo after · Cancel anytime</p>
   </div>
-
 </div>
 </div>
 
-<!-- ══════════════════════════════
-     JAVASCRIPT
-══════════════════════════════ -->
 <script>
 const ageGroups=["4–6 years","7–9 years","10–12 years","13–15 years","16–18 years"];
 const subjects=["Math","Science","Language Arts","History","Geography","Art","Music","Physical Education","Coding","Life Skills"];
 const learnStyles=["Hands-on & building","Reading & writing","Visual & video","Discussion & exploration"];
 const subjectColors={"Math":"#4ECDC4","Science":"#88D498","Language Arts":"#FF9F1C","History":"#FF6B6B","Geography":"#4ECDC4","Art":"#C77DFF","Music":"#FF9F1C","Physical Education":"#88D498","Coding":"#4FC3F7","Life Skills":"#FFB74D"};
 const subjectBg={"Math":"#E0F7F5","Science":"#E8F5E9","Language Arts":"#FFF9C4","History":"#FFEBEE","Geography":"#E0F7F5","Art":"#F3E5F5","Music":"#FFF3E0","Physical Education":"#E8F5E9","Coding":"#E1F5FE","Life Skills":"#FFF8E1"};
-
 const curricula=[
-  {id:"charlotte-mason",icon:"🌿",name:"Charlotte Mason",tagLabel:"Most popular",color:"#88D498",tagBg:"#E8F5E9",
-   desc:"Short, focused lessons using 'living books', nature study and narration. Works beautifully on the road.",
-   traits:["Nature-based","Living books","Short lessons","Narration"],
-   focusStyle:"observation, narration and living books",
-   lessonStyle:(s,n,c)=>({method:"🌿 Observe → Narrate → Record",approach:`${n} observes real-world examples of ${s.toLowerCase()} in ${c}, narrates what they discovered, then records it in a nature journal.`})},
-  {id:"classical",icon:"🏛️",name:"Classical (Trivium)",tagLabel:"Deep & rigorous",color:"#4FC3F7",tagBg:"#E1F5FE",
-   desc:"Grammar, Logic and Rhetoric stages matched to your child's age. A foundation that lasts a lifetime.",
-   traits:["Grammar stage","Logic & reasoning","Rhetoric","Great books"],
-   focusStyle:"structured reasoning and mastery",
-   lessonStyle:(s,n,c)=>({method:"🏛️ Memorize → Understand → Express",approach:`${n} memorizes key facts about ${s.toLowerCase()}, works through logical questions, then expresses conclusions through writing — drawing on examples from ${c}.`})},
-  {id:"unschooling",icon:"🦋",name:"Unschooling / Child-led",tagLabel:"Total freedom",color:"#C77DFF",tagBg:"#F3E5F5",
-   desc:"Learning follows the child's natural curiosity. Life as the classroom.",
-   traits:["Child-directed","Curiosity-driven","No set schedule","Life as learning"],
-   focusStyle:"child-led curiosity and exploration",
-   lessonStyle:(s,n,c)=>({method:"🦋 Follow curiosity → Explore freely",approach:`${n} starts with a genuine question about ${s.toLowerCase()} that interests them today and follows it wherever it leads — using ${c} as a living classroom.`})},
-  {id:"montessori",icon:"🧩",name:"Montessori",tagLabel:"Hands-on",color:"#FFB74D",tagBg:"#FFF8E1",
-   desc:"Self-directed work with hands-on materials. Develops independence and intrinsic motivation.",
-   traits:["Self-directed","Hands-on materials","Independence","Intrinsic motivation"],
-   focusStyle:"hands-on self-directed work",
-   lessonStyle:(s,n,c)=>({method:"🧩 Prepare → Discover → Reflect",approach:`${n} independently chooses a hands-on activity related to ${s.toLowerCase()}, using real objects from ${c}, then reflects on what they learned.`})},
-  {id:"eclectic",icon:"🎨",name:"Eclectic / Mix it up",tagLabel:"Most flexible",color:"#FF9F1C",tagBg:"#FFF3E0",
-   desc:"Take the best from every philosophy. The most common approach among experienced homeschoolers.",
-   traits:["Best of all worlds","Flexible","Parent-guided","Adaptive"],
-   focusStyle:"a thoughtful blend of proven approaches",
-   lessonStyle:(s,n,c)=>({method:"🎨 Best method for the moment",approach:`${n} engages with ${s.toLowerCase()} through whichever approach fits best today — a nature walk, hands-on project, or deep discussion — always rooted in ${c}.`})}
+  {id:"charlotte-mason",icon:"🌿",name:"Charlotte Mason",tagLabel:"Most popular",color:"#88D498",tagBg:"#E8F5E9",desc:"Short, focused lessons using 'living books', nature study and narration. Works beautifully on the road.",traits:["Nature-based","Living books","Short lessons","Narration"],lessonStyle:(s,n,c)=>({method:"🌿 Observe → Narrate → Record",approach:`${n} observes real-world examples of ${s.toLowerCase()} in ${c}, narrates what they discovered, then records it in a nature journal.`})},
+  {id:"classical",icon:"🏛️",name:"Classical (Trivium)",tagLabel:"Deep & rigorous",color:"#4FC3F7",tagBg:"#E1F5FE",desc:"Grammar, Logic and Rhetoric stages matched to your child's age.",traits:["Grammar stage","Logic & reasoning","Rhetoric","Great books"],lessonStyle:(s,n,c)=>({method:"🏛️ Memorize → Understand → Express",approach:`${n} memorizes key facts about ${s.toLowerCase()}, works through logical questions, then expresses conclusions — drawing on examples from ${c}.`})},
+  {id:"unschooling",icon:"🦋",name:"Unschooling / Child-led",tagLabel:"Total freedom",color:"#C77DFF",tagBg:"#F3E5F5",desc:"Learning follows the child's natural curiosity. Life as the classroom.",traits:["Child-directed","Curiosity-driven","No set schedule","Life as learning"],lessonStyle:(s,n,c)=>({method:"🦋 Follow curiosity → Explore freely",approach:`${n} starts with a genuine question about ${s.toLowerCase()} and follows it wherever it leads — using ${c} as a living classroom.`})},
+  {id:"montessori",icon:"🧩",name:"Montessori",tagLabel:"Hands-on",color:"#FFB74D",tagBg:"#FFF8E1",desc:"Self-directed work with hands-on materials. Develops independence.",traits:["Self-directed","Hands-on materials","Independence","Intrinsic motivation"],lessonStyle:(s,n,c)=>({method:"🧩 Prepare → Discover → Reflect",approach:`${n} independently chooses a hands-on activity related to ${s.toLowerCase()}, using real objects from ${c}, then reflects on what they learned.`})},
+  {id:"eclectic",icon:"🎨",name:"Eclectic / Mix it up",tagLabel:"Most flexible",color:"#FF9F1C",tagBg:"#FFF3E0",desc:"Take the best from every philosophy. Most common among experienced homeschoolers.",traits:["Best of all worlds","Flexible","Parent-guided","Adaptive"],lessonStyle:(s,n,c)=>({method:"🎨 Best method for the moment",approach:`${n} engages with ${s.toLowerCase()} through whichever approach fits best today — always rooted in ${c}.`})}
 ];
+const landmarkDB={temple:["Wat Phra Singh 🏛️","Wat Chedi Luang ⛩️","Doi Suthep Temple 🗻","Grand Palace 🏯"],market:["Sunday Walking Street 🛒","Warorot Market 🥭","Night Bazaar 🌙","Chatuchak Market 🎪"],museum:["City Arts Museum 🎨","Folklife Museum 🏺","National Museum 🏛️","Science Museum 🔬"],park:["Doi Suthep-Pui NP 🌲","Huay Tung Tao Lake 🏞️","Nimmanhaemin Park 🌸","Buak Hard Park 🌺"],beach:["Nai Harn Beach 🏖️","Patong Beach 🌊","Maya Bay 🐠","Karon Beach 🐚"],elephant:["Elephant Nature Park 🐘","Elephant Sanctuary 🌿","Forest Elephant Camp 🌳"],food:["Thai Cooking Class 🍜","Street Food Tour 🥘","Local Market Tasting 🫙"],waterfall:["Mae Klang Waterfall 💧","Sticky Waterfall 🌊","Huay Kaew Waterfall 🏔️"],default:["Local Market 🛒","City Park 🌳","Historical Site 🏛️","River Walk 🌊","Art Gallery 🎨","Botanical Garden 🌸"]};
 
-// Landmark suggestions by keyword
-const landmarkDB={
-  temple:["Wat Phra Singh 🏛️","Wat Chedi Luang ⛩️","Doi Suthep Temple 🗻","Grand Palace 🏯"],
-  market:["Sunday Walking Street 🛒","Warorot Market 🥭","Night Bazaar 🌙","Chatuchak Weekend Market 🎪"],
-  museum:["Chiang Mai City Arts Museum 🎨","Lanna Folklife Museum 🏺","National Museum 🏛️","Science Museum 🔬"],
-  park:["Doi Suthep-Pui NP 🌲","Huay Tung Tao Lake 🏞️","Nimmanhaemin Park 🌸","Buak Hard Park 🌺"],
-  beach:["Nai Harn Beach 🏖️","Patong Beach 🌊","Maya Bay 🐠","Karon Beach 🐚"],
-  elephant:["Elephant Nature Park 🐘","Elephant Sanctuary 🌿","Forest Elephant Camp 🌳"],
-  food:["Thai Cooking Class 🍜","Street Food Tour 🥘","Local Market Tasting 🫙"],
-  waterfall:["Mae Klang Waterfall 💧","Sticky Waterfall 🌊","Huay Kaew Waterfall 🏔️"],
-  default:["Local Market 🛒","City Park 🌳","Historical Site 🏛️","River Walk 🌊","Art Gallery 🎨","Botanical Garden 🌸"]
-};
-
-let state={
-  childName:"",age:"",selectedSubjects:[],curriculum:null,
-  learnStyle:"",country:"",city:"",familyValues:"",
-  lessons:null,activeDay:0,completed:{},
-  selectedLandmarks:[],
-  diaryKeywords:[],diaryEntries:[]
-};
+let state={childName:"",age:"",selectedSubjects:[],curriculum:null,learnStyle:"",country:"",city:"",familyValues:"",lessons:null,activeDay:0,completed:{},selectedLandmarks:[],diaryKeywords:[],diaryEntries:[]};
 let billing='monthly';
-
 const progressLabels=["About Child","Philosophy","Location","Learning Style"];
 const progressScreens=["child","curriculum","location","style","dashboard"];
 
-function go(screen){
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  document.getElementById('screen-'+screen).classList.add('active');
-  updateProgress(screen);
-  if(screen==='diary') renderDiaryScreen();
-  window.scrollTo(0,0);
-}
-
+function go(s){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById('screen-'+s).classList.add('active');updateProgress(s);if(s==='diary')renderDiaryScreen();window.scrollTo(0,0);}
 function updateProgress(screen){
   const current=progressScreens.indexOf(screen);
   ["child","curriculum","location","style"].forEach(s=>{
-    const el=document.getElementById('progress-'+s); if(!el)return;
-    el.innerHTML=progressLabels.map((l,j)=>`
-      <div class="progress-item">
-        <div class="progress-bar ${j<current?'done':j===current?'active':''}"></div>
-        <span class="progress-label ${j<current?'done':j===current?'active':''}">${l}</span>
-      </div>`).join('');
+    const el=document.getElementById('progress-'+s);if(!el)return;
+    el.innerHTML=progressLabels.map((l,j)=>`<div class="progress-item"><div class="progress-bar ${j<current?'done':j===current?'active':''}"></div><span class="progress-label ${j<current?'done':j===current?'active':''}">${l}</span></div>`).join('');
   });
 }
-
 function buildUI(){
-  document.getElementById('age-tags').innerHTML=ageGroups.map(a=>
-    `<button class="tag ${state.age===a?'selected':''}" onclick="selectAge('${a}')">${a}</button>`).join('');
-  document.getElementById('subject-tags').innerHTML=subjects.map(s=>
-    `<button class="tag ${state.selectedSubjects.includes(s)?'selected':''}" onclick="toggleSubject('${s}')">${s}</button>`).join('');
-  document.getElementById('curriculum-cards').innerHTML=curricula.map(c=>`
-    <button class="curriculum-card ${state.curriculum===c.id?'selected':''}" onclick="selectCurriculum('${c.id}')">
-      <div class="curriculum-card-header">
-        <span style="font-size:20px">${c.icon}</span>
-        <span class="curriculum-name">${c.name}</span>
-        <span class="curriculum-tag" style="background:${c.tagBg};color:${c.color}">${c.tagLabel}</span>
-      </div>
-      <p class="curriculum-desc">${c.desc}</p>
-      <div class="curriculum-traits">${c.traits.map(t=>`<span class="trait">${t}</span>`).join('')}</div>
-    </button>`).join('');
-  document.getElementById('learn-styles').innerHTML=learnStyles.map(s=>
-    `<button class="style-option ${state.learnStyle===s?'selected':''}" onclick="selectStyle('${s}')">${s}</button>`).join('');
-  const h=document.getElementById('style-heading');
-  if(h) h.textContent=`How does ${state.childName||'your child'} learn best? 🎨`;
+  document.getElementById('age-tags').innerHTML=ageGroups.map(a=>`<button class="tag ${state.age===a?'selected':''}" onclick="selectAge('${a}')">${a}</button>`).join('');
+  document.getElementById('subject-tags').innerHTML=subjects.map(s=>`<button class="tag ${state.selectedSubjects.includes(s)?'selected':''}" onclick="toggleSubject('${s}')">${s}</button>`).join('');
+  document.getElementById('curriculum-cards').innerHTML=curricula.map(c=>`<button class="curriculum-card ${state.curriculum===c.id?'selected':''}" onclick="selectCurriculum('${c.id}')"><div class="curriculum-card-header"><span style="font-size:20px">${c.icon}</span><span class="curriculum-name">${c.name}</span><span class="curriculum-tag" style="background:${c.tagBg};color:${c.color}">${c.tagLabel}</span></div><p class="curriculum-desc">${c.desc}</p><div class="curriculum-traits">${c.traits.map(t=>`<span class="trait">${t}</span>`).join('')}</div></button>`).join('');
+  document.getElementById('learn-styles').innerHTML=learnStyles.map(s=>`<button class="style-option ${state.learnStyle===s?'selected':''}" onclick="selectStyle('${s}')">${s}</button>`).join('');
+  const h=document.getElementById('style-heading');if(h)h.textContent=`How does ${state.childName||'your child'} learn best? 🎨`;
 }
-
 function selectAge(a){state.age=a;buildUI();checkChild();}
-function toggleSubject(s){
-  if(state.selectedSubjects.includes(s))state.selectedSubjects=state.selectedSubjects.filter(x=>x!==s);
-  else if(state.selectedSubjects.length<5)state.selectedSubjects.push(s);
-  buildUI();checkChild();
-}
+function toggleSubject(s){if(state.selectedSubjects.includes(s))state.selectedSubjects=state.selectedSubjects.filter(x=>x!==s);else if(state.selectedSubjects.length<5)state.selectedSubjects.push(s);buildUI();checkChild();}
 function selectCurriculum(id){state.curriculum=id;buildUI();document.getElementById('btn-curriculum').disabled=false;}
 function selectStyle(s){state.learnStyle=s;buildUI();document.getElementById('btn-style').disabled=false;}
-function checkChild(){
-  state.childName=document.getElementById('childName').value;
-  document.getElementById('btn-child').disabled=!(state.childName&&state.age&&state.selectedSubjects.length>0);
-  const h=document.getElementById('style-heading');
-  if(h) h.textContent=`How does ${state.childName||'your child'} learn best? 🎨`;
-}
-function checkLocation(){
-  state.country=document.getElementById('country').value;
-  state.city=document.getElementById('city').value;
-  document.getElementById('btn-location').disabled=!(state.country&&state.city);
-}
-
+function checkChild(){state.childName=document.getElementById('childName').value;document.getElementById('btn-child').disabled=!(state.childName&&state.age&&state.selectedSubjects.length>0);const h=document.getElementById('style-heading');if(h)h.textContent=`How does ${state.childName||'your child'} learn best? 🎨`;}
+function checkLocation(){state.country=document.getElementById('country').value;state.city=document.getElementById('city').value;document.getElementById('btn-location').disabled=!(state.country&&state.city);}
 function generate(){
   state.familyValues=document.getElementById('familyValues').value;
   const c=curricula.find(x=>x.id===state.curriculum);
   go('generating');
   document.getElementById('gen-heading').textContent=`Building ${state.childName}'s week... ✨`;
-  document.getElementById('gen-text').innerHTML=`Applying ${c.name} philosophy,<br>weaving ${state.city} into every lesson,<br>matching ${state.learnStyle.toLowerCase()}.`;
+  document.getElementById('gen-text').innerHTML=`Applying ${c.name} philosophy,<br>weaving ${state.city} into every lesson.`;
   setTimeout(()=>{state.lessons=buildLessons();state.activeDay=0;state.completed={};state.selectedLandmarks=[];renderDashboard();go('dashboard');},2400);
 }
-
 function buildLessons(){
   const{city,childName:name,selectedSubjects:subs,curriculum:cid}=state;
   const c=curricula.find(x=>x.id===cid);
   const subPool=[...subs,...subs,...subs,...subs].slice(0,15);
   const days=["Monday","Tuesday","Wednesday","Thursday","Friday"];
-  const foci=[
-    `${c.name}: deep dive into ${subs[0]||"core learning"} 📚`,
-    `Real-world ${subs[1]||subs[0]||"exploration"} in ${city} 🌍`,
-    `${c.name} meets ${city} — place and learning as one 📍`,
-    `Creative expression & cross-subject discovery 🎨`,
-    `Review, reflect & celebrate the week's growth 🌟`
-  ];
-  const titleFns=[
-    s=>`${city} Through the Lens of ${s}`,
-    s=>`The ${s} of ${city}`,
-    s=>`${s} in the Wild`,
-    s=>`Living ${s}: A ${c.name} Approach`,
-    s=>`${name}'s ${s} Challenge`
-  ];
+  const foci=[`${c.name}: deep dive into ${subs[0]||"core learning"} 📚`,`Real-world ${subs[1]||subs[0]||"exploration"} in ${city} 🌍`,`${c.name} meets ${city} 📍`,`Creative expression & discovery 🎨`,`Review, reflect & celebrate 🌟`];
+  const titleFns=[s=>`${city} Through the Lens of ${s}`,s=>`The ${s} of ${city}`,s=>`${s} in the Wild`,s=>`Living ${s}: A ${c.name} Approach`,s=>`${name}'s ${s} Challenge`];
   const durations=["30 min","45 min","60 min","40 min","50 min"];
-  return{
-    week_theme:`${name}'s ${city} Discovery Week 🌟`,curriculum:c,
-    days:days.map((day,di)=>({
-      day,focus:foci[di],
-      lessons:[0,1,2].map(li=>{
-        const subject=subPool[(di*3+li)%subPool.length];
-        const style=c.lessonStyle(subject,name,city);
-        return{subject,title:titleFns[(di+li)%titleFns.length](subject),
-          duration:durations[(di+li)%durations.length],method:style.method,
-          description:style.approach,
-          local_tip:`Use ${city} as your classroom: ${style.approach.split('.')[0].replace(name,'your child')}.`};
-      })
-    }))
-  };
+  return{week_theme:`${name}'s ${city} Discovery Week 🌟`,curriculum:c,days:days.map((day,di)=>({day,focus:foci[di],lessons:[0,1,2].map(li=>{const subject=subPool[(di*3+li)%subPool.length];const style=c.lessonStyle(subject,name,city);return{subject,title:titleFns[(di+li)%titleFns.length](subject),duration:durations[(di+li)%durations.length],method:style.method,description:style.approach,local_tip:`Use ${city} as your classroom: ${style.approach.split('.')[0].replace(name,'your child')}.`};})}))}; 
 }
-
-// ── LANDMARKS ──
 function searchLandmarks(){
-  const q=document.getElementById('landmark-input').value.trim().toLowerCase();
-  if(!q)return;
-  const keys=Object.keys(landmarkDB);
-  let results=landmarkDB.default;
+  const q=document.getElementById('landmark-input').value.trim().toLowerCase();if(!q)return;
+  const keys=Object.keys(landmarkDB);let results=landmarkDB.default;
   for(const k of keys){if(q.includes(k)||k.includes(q)){results=landmarkDB[k];break;}}
-  const container=document.getElementById('landmark-results');
-  container.innerHTML=results.map(r=>`
-    <span class="landmark-chip ${state.selectedLandmarks.includes(r)?'active':''}" onclick="toggleLandmark('${r}')">${r}</span>`).join('');
+  document.getElementById('landmark-results').innerHTML=results.map(r=>`<span class="landmark-chip ${state.selectedLandmarks.includes(r)?'active':''}" onclick="toggleLandmark('${r}')">${r}</span>`).join('');
   document.getElementById('landmark-input').value='';
 }
 function toggleLandmark(name){
-  if(state.selectedLandmarks.includes(name)){
-    state.selectedLandmarks=state.selectedLandmarks.filter(x=>x!==name);
-  } else {
-    state.selectedLandmarks.push(name);
-  }
+  if(state.selectedLandmarks.includes(name))state.selectedLandmarks=state.selectedLandmarks.filter(x=>x!==name);
+  else state.selectedLandmarks.push(name);
   renderSelectedLandmarks();
-  document.querySelectorAll('.landmark-chip').forEach(c=>{
-    c.classList.toggle('active',state.selectedLandmarks.includes(c.textContent.trim()));
-  });
+  document.querySelectorAll('.landmark-chip').forEach(c=>c.classList.toggle('active',state.selectedLandmarks.includes(c.textContent.trim())));
 }
 function renderSelectedLandmarks(){
   const container=document.getElementById('selected-landmarks');
   const chips=document.getElementById('selected-landmark-chips');
   if(state.selectedLandmarks.length===0){container.style.display='none';return;}
   container.style.display='block';
-  chips.innerHTML=state.selectedLandmarks.map(l=>
-    `<span class="landmark-chip active" onclick="toggleLandmark('${l}')">${l} ✕</span>`).join('');
+  chips.innerHTML=state.selectedLandmarks.map(l=>`<span class="landmark-chip active" onclick="toggleLandmark('${l}')">${l} ✕</span>`).join('');
 }
-
-// ── DASHBOARD RENDER ──
-function toggleLesson(di,li){
-  const key=`${di}_${li}`;
-  state.completed[key]=!state.completed[key];
-  renderDay();updateWeekProgress();updateDayTabs();
-}
-function updateWeekProgress(){
-  const done=Object.values(state.completed).filter(Boolean).length;
-  const pct=Math.round((done/15)*100);
-  document.getElementById('progress-text').textContent=`${done} of 15 lessons completed`;
-  document.getElementById('progress-pct').textContent=`${pct}%`;
-  document.getElementById('progress-fill').style.width=`${pct}%`;
-}
-function updateDayTabs(){
-  document.querySelectorAll('.day-tab').forEach((tab,di)=>{
-    const done=[0,1,2].every(li=>state.completed[`${di}_${li}`]);
-    tab.classList.toggle('completed',done);
-  });
-}
+function toggleLesson(di,li){const key=`${di}_${li}`;state.completed[key]=!state.completed[key];renderDay();updateWeekProgress();updateDayTabs();}
+function updateWeekProgress(){const done=Object.values(state.completed).filter(Boolean).length;const pct=Math.round((done/15)*100);document.getElementById('progress-text').textContent=`${done} of 15 lessons completed`;document.getElementById('progress-pct').textContent=`${pct}%`;document.getElementById('progress-fill').style.width=`${pct}%`;}
+function updateDayTabs(){document.querySelectorAll('.day-tab').forEach((tab,di)=>{const done=[0,1,2].every(li=>state.completed[`${di}_${li}`]);tab.classList.toggle('completed',done);});}
 function renderDashboard(){
   const l=state.lessons;const c=l.curriculum;
   document.getElementById('location-label').textContent=`📍 ${state.city}, ${state.country}`;
@@ -847,190 +655,79 @@ function renderDashboard(){
   document.getElementById('day-tabs').innerHTML=l.days.map((d,i)=>`<button class="day-tab ${i===0?'active':''}" onclick="selectDay(${i})">${d.day}</button>`).join('');
   updateWeekProgress();renderDay();
 }
-function selectDay(i){
-  state.activeDay=i;
-  document.querySelectorAll('.day-tab').forEach((t,j)=>t.classList.toggle('active',j===i));
-  renderDay();
-}
+function selectDay(i){state.activeDay=i;document.querySelectorAll('.day-tab').forEach((t,j)=>t.classList.toggle('active',j===i));renderDay();}
 function renderDay(){
   const day=state.lessons.days[state.activeDay];const di=state.activeDay;
-  // Add landmark to focus if any selected
   const landmarkNote=state.selectedLandmarks.length>0?` — featuring ${state.selectedLandmarks[0]}`:'';
   document.getElementById('day-focus').innerHTML=`<span class="focus-icon">🎯</span><div><div class="focus-eyebrow">Today's focus</div><div class="focus-text">${day.focus}${landmarkNote}</div></div>`;
   document.getElementById('lessons-container').innerHTML=day.lessons.map((lesson,li)=>{
     const key=`${di}_${li}`;const done=!!state.completed[key];
-    const color=subjectColors[lesson.subject]||"#FF9F1C";
-    const bg=subjectBg[lesson.subject]||"#FFF9C4";
-    const landmark=state.selectedLandmarks[li%state.selectedLandmarks.length];
+    const color=subjectColors[lesson.subject]||"#FF9F1C";const bg=subjectBg[lesson.subject]||"#FFF9C4";
+    const landmark=state.selectedLandmarks[li%Math.max(1,state.selectedLandmarks.length)];
     const tipText=landmark?`${lesson.local_tip} Visit ${landmark} to make this lesson come alive!`:lesson.local_tip;
-    return `<div class="lesson-card ${done?'done':''}" style="animation-delay:${li*0.08}s">
-      <div class="lesson-header">
-        <div class="subject-tag" style="background:${bg};color:${color}">${lesson.subject}</div>
-        <span class="duration">⏱ ${lesson.duration}</span>
-      </div>
-      <h3 class="lesson-title">${lesson.title}</h3>
-      <div class="method-tag">${lesson.method}</div>
-      <p class="lesson-desc">${lesson.description}</p>
-      <div class="local-tip"><div class="local-tip-label">📍 Local tip — ${state.city}</div><p class="local-tip-text">${tipText}</p></div>
-      <button class="check-btn ${done?'done':''}" onclick="toggleLesson(${di},${li})">
-        <span class="check-icon">${done?'✓':''}</span>${done?'Completed! ✨':'Mark as completed'}
-      </button>
-    </div>`;
+    return `<div class="lesson-card ${done?'done':''}" style="animation-delay:${li*0.08}s"><div class="lesson-header"><div class="subject-tag" style="background:${bg};color:${color}">${lesson.subject}</div><span class="duration">⏱ ${lesson.duration}</span></div><h3 class="lesson-title">${lesson.title}</h3><div class="method-tag">${lesson.method}</div><p class="lesson-desc">${lesson.description}</p><div class="local-tip"><div class="local-tip-label">📍 Local tip — ${state.city}</div><p class="local-tip-text">${tipText}</p></div><button class="check-btn ${done?'done':''}" onclick="toggleLesson(${di},${li})"><span class="check-icon">${done?'✓':''}</span>${done?'Completed! ✨':'Mark as completed'}</button></div>`;
   }).join('');
 }
-
-// ── DIARY ──
 function renderDiaryScreen(){
   const today=new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
   const label=document.getElementById('diary-date-label');
-  if(label) label.textContent=`${today} — Write a few keywords about your day. Our AI will turn them into a beautiful story to keep forever.`;
-  renderKeywords();
-  renderPastEntries();
+  if(label)label.textContent=`${today} — Write a few keywords about your day. Our AI will turn them into a beautiful story to keep forever.`;
+  renderKeywords();renderPastEntries();
 }
-function addKeyword(){
-  const input=document.getElementById('keyword-input');
-  const val=input.value.trim();
-  if(!val)return;
-  const words=val.split(',').map(w=>w.trim()).filter(Boolean);
-  words.forEach(w=>{if(!state.diaryKeywords.includes(w))state.diaryKeywords.push(w);});
-  input.value='';
-  renderKeywords();
-  document.getElementById('btn-generate-story').disabled=state.diaryKeywords.length<2;
-}
-function removeKeyword(kw){
-  state.diaryKeywords=state.diaryKeywords.filter(x=>x!==kw);
-  renderKeywords();
-  document.getElementById('btn-generate-story').disabled=state.diaryKeywords.length<2;
-}
-function renderKeywords(){
-  const container=document.getElementById('diary-keywords');
-  if(state.diaryKeywords.length===0){
-    container.innerHTML='<span style="color:#C5BDB5;font-size:13px;font-weight:600;align-self:center">Your keywords will appear here...</span>';
-    return;
-  }
-  container.innerHTML=state.diaryKeywords.map(kw=>
-    `<span class="keyword-tag" onclick="removeKeyword('${kw}')">${kw} <span class="keyword-remove">✕</span></span>`).join('');
-}
+function addKeyword(){const input=document.getElementById('keyword-input');const val=input.value.trim();if(!val)return;val.split(',').map(w=>w.trim()).filter(Boolean).forEach(w=>{if(!state.diaryKeywords.includes(w))state.diaryKeywords.push(w);});input.value='';renderKeywords();document.getElementById('btn-generate-story').disabled=state.diaryKeywords.length<2;}
+function removeKeyword(kw){state.diaryKeywords=state.diaryKeywords.filter(x=>x!==kw);renderKeywords();document.getElementById('btn-generate-story').disabled=state.diaryKeywords.length<2;}
+function renderKeywords(){const container=document.getElementById('diary-keywords');if(state.diaryKeywords.length===0){container.innerHTML='<span style="color:#C5BDB5;font-size:13px;font-weight:600;align-self:center">Your keywords will appear here...</span>';return;}container.innerHTML=state.diaryKeywords.map(kw=>`<span class="keyword-tag" onclick="removeKeyword('${kw}')">${kw} <span>✕</span></span>`).join('');}
 function generateStory(){
   if(state.diaryKeywords.length<2)return;
   const container=document.getElementById('diary-story-container');
-  container.innerHTML=`<div class="diary-story"><div class="diary-generating"><div class="diary-spinner"></div>Writing your story... ✨</div></div>`;
-
-  const name=state.childName||"the child";
-  const city=state.city||"their travels";
-  const keywords=state.diaryKeywords;
+  container.innerHTML=`<div class="diary-story"><div style="text-align:center;padding:24px;color:var(--muted);font-size:14px"><div class="diary-spinner"></div>Writing your story... ✨</div></div>`;
+  const name=state.childName||"the child";const city=state.city||"their travels";const keywords=state.diaryKeywords;
   const today=new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'});
-
-  // Generate a warm, child-friendly story from keywords
   setTimeout(()=>{
     const story=createStory(name,city,keywords,today);
     const entry={date:today,keywords:[...keywords],story,id:Date.now()};
-    state.diaryEntries.unshift(entry);
-    state.diaryKeywords=[];
-    renderKeywords();
+    state.diaryEntries.unshift(entry);state.diaryKeywords=[];renderKeywords();
     document.getElementById('btn-generate-story').disabled=true;
-    container.innerHTML=`
-      <div class="diary-story" style="animation:fadeUp 0.5s ease both">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px">
-          <span style="font-size:24px">📖</span>
-          <div>
-            <div style="font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:0.06em">${today}</div>
-            <div style="font-size:13px;color:var(--sun);font-weight:700">${keywords.join(' · ')}</div>
-          </div>
-        </div>
-        <div class="diary-story-text">${story}</div>
-        <div class="diary-download">
-          <button class="download-btn" onclick="downloadStory('${entry.id}','txt')">📄 Download as .txt</button>
-          <button class="download-btn" onclick="downloadStory('${entry.id}','html')">🌐 Download as .html</button>
-        </div>
-      </div>`;
+    container.innerHTML=`<div class="diary-story" style="animation:fadeUp 0.5s ease both"><div style="display:flex;align-items:center;gap:8px;margin-bottom:14px"><span style="font-size:24px">📖</span><div><div style="font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:0.06em">${today}</div><div style="font-size:13px;color:var(--sun);font-weight:700">${keywords.join(' · ')}</div></div></div><div class="diary-story-text">${story}</div><div class="diary-download"><button class="download-btn" onclick="downloadStory('${entry.id}','txt')">📄 Download .txt</button><button class="download-btn" onclick="downloadStory('${entry.id}','html')">🌐 Download .html</button></div></div>`;
     renderPastEntries();
   },1800);
 }
 function createStory(name,city,keywords,date){
-  const openers=[
-    `What a wonderful day it was in ${city}! `,
-    `Today was one of those days that ${name} will never forget. `,
-    `The sun was shining over ${city} as ${name} set out on another adventure. `,
-    `It began just like any other morning in ${city} — but it was anything but ordinary. `
-  ];
-  const middles=[
-    `The air was filled with excitement as the day unfolded. `,
-    `Every moment brought something new and surprising. `,
-    `Time seemed to slow down, letting every detail sink in. `,
-    `Curiosity led the way, as it always does on the best days. `
-  ];
-  const closers=[
-    `As the day drew to a close, ${name} felt a warm glow of happiness — the kind that only comes from truly living in the world. 🌟`,
-    `Falling asleep that night, ${name} smiled, knowing that ${city} had left a little mark on their heart forever. 💛`,
-    `Another day, another adventure. ${city} keeps giving, and ${name} keeps growing. ✨`,
-    `And somewhere in between all of it, ${name} learned something wonderful — not just about the world, but about themselves. 🌍`
-  ];
-  const keyStories=keywords.map((kw,i)=>{
-    const sentences=[
-      `The day included a memorable encounter with ${kw} — something that sparked a whole conversation about how the world works. `,
-      `${name} discovered something fascinating about ${kw} today, and spent a good while exploring it from every angle. `,
-      `${kw} turned out to be the highlight of the afternoon — unexpected, delightful, and full of learning. `,
-      `A moment with ${kw} stopped everything in the best possible way. It was the kind of thing you can't plan for. `
-    ];
-    return sentences[i%sentences.length];
-  });
-  return openers[Math.floor(Math.random()*openers.length)]+keyStories.join('')+middles[Math.floor(Math.random()*middles.length)]+closers[Math.floor(Math.random()*closers.length)];
+  const openers=[`What a wonderful day it was in ${city}! `,`Today was one of those days that ${name} will never forget. `,`The sun was shining over ${city} as ${name} set out on another adventure. `,`It began just like any other morning in ${city} — but it was anything but ordinary. `];
+  const closers=[`As the day drew to a close, ${name} felt a warm glow of happiness — the kind that only comes from truly living in the world. 🌟`,`Falling asleep that night, ${name} smiled, knowing that ${city} had left a little mark on their heart forever. 💛`,`Another day, another adventure. ${city} keeps giving, and ${name} keeps growing. ✨`];
+  const keyStories=keywords.map((kw,i)=>{const s=[`The day included a memorable encounter with ${kw} — something that sparked a whole conversation about how the world works. `,`${name} discovered something fascinating about ${kw} today, and spent a good while exploring it. `,`${kw} turned out to be the highlight of the afternoon — unexpected, delightful, and full of learning. `,`A moment with ${kw} stopped everything in the best possible way. `];return s[i%s.length];});
+  return openers[Math.floor(Math.random()*openers.length)]+keyStories.join('')+closers[Math.floor(Math.random()*closers.length)];
 }
 function downloadStory(id,format){
-  const entry=state.diaryEntries.find(e=>e.id==id);
-  if(!entry)return;
+  const entry=state.diaryEntries.find(e=>e.id==id);if(!entry)return;
   let content,filename,type;
-  if(format==='txt'){
-    content=`${entry.date}\nKeywords: ${entry.keywords.join(', ')}\n\n${entry.story.replace(/<[^>]*>/g,'')}`;
-    filename=`nomadschool-journal-${entry.date.replace(/[, ]/g,'-')}.txt`;
-    type='text/plain';
-  } else {
-    content=`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Journal – ${entry.date}</title><style>body{font-family:Georgia,serif;max-width:600px;margin:60px auto;line-height:1.9;color:#333;padding:0 20px;}h1{font-size:28px;color:#FF9F1C;}p{font-size:16px;}.keywords{font-size:13px;color:#999;margin-bottom:32px;}</style></head><body><h1>📖 ${entry.date}</h1><p class="keywords">Keywords: ${entry.keywords.join(' · ')}</p><p>${entry.story}</p></body></html>`;
-    filename=`nomadschool-journal-${entry.date.replace(/[, ]/g,'-')}.html`;
-    type='text/html';
-  }
-  const blob=new Blob([content],{type});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');
-  a.href=url;a.download=filename;a.click();
-  URL.revokeObjectURL(url);
+  if(format==='txt'){content=`${entry.date}\nKeywords: ${entry.keywords.join(', ')}\n\n${entry.story}`;filename=`nomadschool-journal-${entry.date.replace(/[, ]/g,'-')}.txt`;type='text/plain';}
+  else{content=`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Journal – ${entry.date}</title><style>body{font-family:Georgia,serif;max-width:600px;margin:60px auto;line-height:1.9;color:#333;padding:0 20px;}h1{color:#FF9F1C;}</style></head><body><h1>📖 ${entry.date}</h1><p style="color:#999">Keywords: ${entry.keywords.join(' · ')}</p><p>${entry.story}</p></body></html>`;filename=`nomadschool-journal-${entry.date.replace(/[, ]/g,'-')}.html`;type='text/html';}
+  const blob=new Blob([content],{type});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;a.click();URL.revokeObjectURL(url);
 }
 function renderPastEntries(){
-  const container=document.getElementById('past-entries');
-  const noEntries=document.getElementById('no-entries');
+  const container=document.getElementById('past-entries');const noEntries=document.getElementById('no-entries');
   if(state.diaryEntries.length===0){noEntries.style.display='block';container.innerHTML='';return;}
   noEntries.style.display='none';
-  container.innerHTML=state.diaryEntries.slice(0,5).map(entry=>`
-    <div style="background:white;border:2px solid var(--border);border-radius:16px;padding:18px;margin-bottom:12px;box-shadow:0 2px 6px rgba(0,0,0,0.04)">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
-        <div>
-          <div style="font-size:12px;color:var(--muted);font-weight:700">${entry.date}</div>
-          <div style="font-size:13px;color:var(--sun);font-weight:700">${entry.keywords.join(' · ')}</div>
-        </div>
-        <div style="display:flex;gap:8px">
-          <button class="download-btn" style="font-size:11px;padding:6px 12px" onclick="downloadStory('${entry.id}','txt')">📄 .txt</button>
-          <button class="download-btn" style="font-size:11px;padding:6px 12px" onclick="downloadStory('${entry.id}','html')">🌐 .html</button>
-        </div>
-      </div>
-      <p style="font-size:13px;color:#666;line-height:1.7">${entry.story.substring(0,180)}...</p>
-    </div>`).join('');
+  container.innerHTML=state.diaryEntries.slice(0,5).map(entry=>`<div style="background:white;border:2px solid var(--border);border-radius:16px;padding:18px;margin-bottom:12px;box-shadow:0 2px 6px rgba(0,0,0,0.04)"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px"><div><div style="font-size:12px;color:var(--muted);font-weight:700">${entry.date}</div><div style="font-size:13px;color:var(--sun);font-weight:700">${entry.keywords.join(' · ')}</div></div><div style="display:flex;gap:8px"><button class="download-btn" style="font-size:11px;padding:6px 12px" onclick="downloadStory('${entry.id}','txt')">📄 .txt</button><button class="download-btn" style="font-size:11px;padding:6px 12px" onclick="downloadStory('${entry.id}','html')">🌐 .html</button></div></div><p style="font-size:13px;color:#666;line-height:1.7">${entry.story.substring(0,180)}...</p></div>`).join('');
 }
-
-// ── PRICING ──
 function setBilling(b){
   billing=b;
   document.getElementById('btn-monthly').classList.toggle('active',b==='monthly');
   document.getElementById('btn-annual').classList.toggle('active',b==='annual');
-  const p=b==='monthly'?{pro:'$9',fam:'$14',pa:'',fa:''}:{pro:'$6',fam:'$9',pa:'Billed $83.88/year — save $36',fa:'Billed $119.88/year — save $60'};
-  document.getElementById('pro-price').textContent=p.pro;
-  document.getElementById('family-price').textContent=p.fam;
-  document.getElementById('pro-annual').textContent=p.pa;
-  document.getElementById('family-annual').textContent=p.fa;
+  if(b==='monthly'){
+    document.getElementById('pro-price').textContent='$12';document.getElementById('pro-cents').textContent='.99';
+    document.getElementById('family-price').textContent='$18';document.getElementById('family-cents').textContent='.99';
+    document.getElementById('pro-annual').textContent='';document.getElementById('family-annual').textContent='';
+    document.getElementById('compare-pro').textContent='$12.99';document.getElementById('compare-fam').textContent='$18.99';
+  } else {
+    document.getElementById('pro-price').textContent='$8';document.getElementById('pro-cents').textContent='.99';
+    document.getElementById('family-price').textContent='$12';document.getElementById('family-cents').textContent='.99';
+    document.getElementById('pro-annual').textContent='Billed $107.88/year — save $48';document.getElementById('family-annual').textContent='Billed $155.88/year — save $72';
+    document.getElementById('compare-pro').textContent='$8.99';document.getElementById('compare-fam').textContent='$12.99';
+  }
 }
-
-buildUI();
-updateProgress('welcome');
+buildUI();updateProgress('welcome');
 </script>
 </body>
 </html>
